@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\Authenticate;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,21 +15,27 @@ use App\Http\Middleware\Authenticate;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->middleware(Authenticate::class);
+/*
+|--------------------------------------------------------------------------|
+|------------------------- HomeController Routes --------------------------|
+|--------------------------------------------------------------------------|
+*/
 
-Route::get('/home', function () {
-    return view('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [HomeController::class, 'getHomeView'])
+        ->name('home');
 });
 
-Route::get(
-    '/login',
-    [LoginController::class, 'login']
-)->name('login');
+/*
+|--------------------------------------------------------------------------|
+|------------------------- LoginController Routes -------------------------|
+|--------------------------------------------------------------------------|
+*/
 
+Route::middleware('guest')->group(function () {
+    Route::get('/', [AuthController::class, 'getLoginView'])
+        ->name('login');
+    Route::post('/login', [AuthController::class, 'logIn']);
+});
 
-Route::post(
-    '/login/enter',
-    [LoginController::class, 'enter']
-);
+Route::get('/logout', [AuthController::class, 'logOut']);
