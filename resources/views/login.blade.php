@@ -7,6 +7,9 @@
 
     <title>Laravel</title>
 
+    <!-- Ico -->
+    <link rel="icon" type="image/svg+xml" href={{ asset('assets/images/dentist-logo.svg') }}>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -450,26 +453,24 @@
 </head>
 
 <body class="text-center">
-    <form class="form-signin" method="POST" action="/login/enter">
+    <form class="form-signin" method="POST" action="/login">
         @csrf
-        <img class="mb-4" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png" alt=""
-            width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Inicio de Sesión</h1>
-        <label for="inputEmail" class="sr-only">Correo Electrónico</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Correo Electrónico" required=""
-            autofocus="">
-        <label for="inputPassword" class="sr-only">Contraseña</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
-        <div class="checkbox mb-3">
+        <img class="mb-4" src={{ asset('assets/images/dentist-logo.svg') }} alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">@lang('auth.login_form.title')</h1>
+        <label for="inputEmail" class="sr-only">@lang('auth.login_form.email_input')</label>
+        <input type="email" name="email" id="inputEmail" class="form-control"
+            placeholder="@lang('auth.login_form.email_input')" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">@lang('auth.login_form.password_input')</label>
+        <input type="password" name="password" id="inputPassword" class="form-control"
+            placeholder="@lang('auth.login_form.password_input')" required="">
+        {{-- <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Recordar Sesión
             </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+        </div> --}}
+        <button class="btn btn-lg btn-primary btn-block" type="submit">@lang('auth.login_form.enter_button')</button>
         <p class="mt-5 mb-3 text-muted">© 2020-2020</p>
     </form>
-
-
 </body>
 
 </html>
