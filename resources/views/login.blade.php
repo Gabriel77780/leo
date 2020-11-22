@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Dental Clinic</title>
+    <title>Clínica Rabab</title>
 
     <!-- Ico -->
     <link rel="icon" type="image/svg+xml" href={{ asset('assets/images/dentist-logo.svg') }}>

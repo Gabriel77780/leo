@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Clínica Rabab</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
 
 <body>
     <nav class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Clínica Rabab</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,15 +41,15 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <nav id="sidebar-menu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="sidebar-sticky pt-3">
-                    <ul id="sidebar-list" class="nav flex-column">
+                    <ul id="sidebar-unordered-list" class="nav flex-column">
 
                     </ul>
                 </div>
             </nav>
 
-            <main id="spa-content" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <main id="spa-content" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 pt-4">
                 <h2>Inicio</h2>
             </main>
         </div>
@@ -59,7 +59,7 @@
     <script type="text/javascript" src="{{asset('assets/js/app_core.js')}}"></script>
     <script>
         $( document ).ready(function(){
-            AppCore.getSidebarMenu();
+            AppCore.buildMenu();
         })
 
     </script>

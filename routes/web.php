@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PermissionController;
+use App\Models\Permission;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,25 +19,48 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------|
-|------------------------- HomeController Routes --------------------------|
+|------------------------------ Guest Routes ------------------------------|
 |--------------------------------------------------------------------------|
-*/
-
-Route::middleware('auth')->group(function () {
-    Route::get('/home', [HomeController::class, 'getHomeView'])
-        ->name('home');
-});
-
-/*
-|--------------------------------------------------------------------------|
-|------------------------- LoginController Routes -------------------------|
+|----------- Routes that need to go through the guest middleware ----------|
 |--------------------------------------------------------------------------|
 */
 
 Route::middleware('guest')->group(function () {
+
+    //----------------------- AuthController Routes ----------------------//
+
     Route::get('/', [AuthController::class, 'getLoginView'])
         ->name('login');
+
     Route::post('/login', [AuthController::class, 'logIn']);
 });
 
-Route::get('/logout', [AuthController::class, 'logOut']);
+/*
+|--------------------------------------------------------------------------|
+|------------------------------ Auth Routes -------------------------------|
+|--------------------------------------------------------------------------|
+|----------- Routes that need to go through the auth middleware -----------|
+|--------------------------------------------------------------------------|
+*/
+
+Route::middleware('auth')->group(function () {
+
+    //----------------------- AuthController Routes ----------------------//
+
+    Route::get('/logout', [AuthController::class, 'logOut']);
+
+    //----------------------- HomeController Routes -----------------------//
+
+    Route::get('/home', [HomeController::class, 'getHomeView'])
+        ->name('home');
+
+    //--------------------- PermissionController Routes -------------------//
+
+    Route::get('/permissions', [PermissionController::class, 'permissions']);
+
+    //-------------------- PatientController Routes --------------------//
+
+    Route::get('/patient', function () {
+        return view('patient');
+    });
+});
