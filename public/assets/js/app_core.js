@@ -1,9 +1,65 @@
 let AppCore = function () {
 
-    let spaContent = '#spa-content';
+    let mainContent = '#main-content';
+
+    let _retrievePermissions = function () {
+        $.ajax({
+            async: true,
+            type: 'get',
+            url: '/permissions'
+        })
+            .done(data => _buildMenu(data))
+            .fail(() => console.log('Error loading the menu.'));
+    }
+
+    let _buildMenu = function (permissions) {
+
+        permissions.forEach(permission => _buildMenuOptions(permission));
+
+        _hideLoadingPage();
+
+    }
+
+    let _buildMenuOptions = function (permission) {
+
+        let menuOptions = '';
+
+        menuOptions += _buildMenuOption(permission);
+
+        $('#sidebar-unordered-list').append(menuOptions);
+    }
+
+    let _buildMenuOption = function (permission) {
+        return '<li class="nav-item">'
+            + '<a class="nav-link" onclick="AppCore.loadContent(' + "'" + permission.path + "'" + '); AppCore.setMenuOptionActive(this)">'
+            + '<i style="margin-right: 4px;" class="' + permission.icon_class + '"></i>' + permission.description + ''
+            + '<span class="sr-only">'
+            + '</span>'
+            + '</a>'
+            + '</li>';
+    }
+
+    let _loadContent = function (url) {
+        $(mainContent).load(url);
+        _sidebarToggler('hide');
+    }
+
+    let _sidebarToggler = function (action) {
+        $('.collapse').collapse(action);
+    }
+
+    _hideLoadingPage = function () {
+
+        document.getElementById('loading-page').style.display = 'none';
+        document.getElementById('main-page').style.display = 'block';
+
+    }
 
     return {
 
+        init: function () {
+            _retrievePermissions();
+        },
         defaultErrorAlertBox: function (title, text) {
             Swal.fire({
                 title: title,
@@ -21,33 +77,18 @@ let AppCore = function () {
             })
         },
         loadContent: function (url) {
-            $(spaContent).load(url);
+            _loadContent(url);
         },
-        buildMenu: function () {
-            $.ajax({
-                type: 'get',
-                url: '/permissions'
-            })
-                .done(data => AppCore.buildMenuOptions(data))
-                .fail(() => AppCore.defaultAccessErrorAlertBox());
-        },
-        buildMenuOption: function (permission) {
+        setMenuOptionActive: function (element) {
 
-            $('#sidebar-unordered-list').html(
-                '<li class="nav-item">'
-                + '<a class="nav-link active" onclick="AppCore.loadContent(' + "'" + permission.path + "'" + ')">'
-                + '<i style="margin-right: 4px;" class="' + permission.icon_class + '"></i>' + permission.description + ''
-                + '<span class="sr-only">'
-                + '</span>'
-                + '</a>'
-                + '</li>');
-        },
-        buildMenuOptions: function (permissions) {
+            let currentActiveElement = document.getElementsByClassName("active");
 
-            permissions.forEach(permission =>
-                AppCore.buildMenuOption(permission));
+            currentActiveElement[0].className
+                = currentActiveElement[0].className.replace(" active", "");
 
-        },
+            element.className += " active";
+
+        }
     };
 
 }();
