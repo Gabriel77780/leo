@@ -52,7 +52,7 @@
                         <ul id="sidebar-unordered-list" class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link active" onclick=" AppCore.setMenuOptionActive(this)">
-                                    <i style="margin-right: 4px;" class="fas fa-space-shuttle"></i> Inicio
+                                    <i style="margin-right: 4px;" class="fas fa-home"></i> Inicio
                                     <span class="sr-only">
                                     </span>
                                 </a>
