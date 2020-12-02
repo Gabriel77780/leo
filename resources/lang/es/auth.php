@@ -15,6 +15,11 @@ return [
 
     'failed' => 'Estas credenciales no coinciden.',
     'throttle' => 'Se alcanzó el máximo de intentos permitidos. Por favor intentelo en :seconds segundos.',
-    'login_form' => ['title' => 'Iniciar Sesión'],
+    'login_form' => [
+        'title' => 'Iniciar Sesión',
+        'email_input' => 'Correo Electrónico',
+        'password_input' => 'Contraseña',
+        'enter_button' => 'Ingresar'
+    ],
 
 ];

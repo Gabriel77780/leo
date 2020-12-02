@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Clínica Rabab</title>
 
@@ -39,7 +40,7 @@
 
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="/logout">Sign out</a>
+                    <a class="nav-link" href="/logout">Salir</a>
                 </li>
             </ul>
         </nav>
@@ -51,7 +52,7 @@
                         <ul id="sidebar-unordered-list" class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link active" onclick=" AppCore.setMenuOptionActive(this)">
-                                    <i style="margin-right: 4px;" class="fas fa-space-shuttle"></i> Home
+                                    <i style="margin-right: 4px;" class="fas fa-space-shuttle"></i> Inicio
                                     <span class="sr-only">
                                     </span>
                                 </a>
@@ -68,14 +69,18 @@
 
     </div>
 
-    <!-- Scripts -->
+    <!-- External Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/29d089d9b5.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script type="text/javascript" src="{{asset('assets/js/app_core.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
+
+    <!-- Internal Scripts -->
+    <script type="text/javascript" src="{{asset('assets/js/app_core.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/form_handler.js')}}"></script>
+
     <script>
         $(window).on('load', function() {
             AppCore.init();

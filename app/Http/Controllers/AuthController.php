@@ -24,6 +24,12 @@ class AuthController extends Controller
     public function logIn(Request $request)
     {
 
+
+        /* $request->validate([
+            'email' => 'required|max:1',
+            'password' => 'required|max:1',
+        ]); */
+
         $loggedIn =
             $this->authService->logIn(
                 $request->input('email'),
