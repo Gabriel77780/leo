@@ -68,6 +68,8 @@
     </script>
 
     <!-- Internal Scripts -->
+    <script type="text/javascript" src="{{asset('assets/js/app_core.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/form_handler.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/controllers/login_controller.js')}}"></script>
 
 </body>
