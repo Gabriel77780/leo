@@ -16,6 +16,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/home/loading-page.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/home/navbar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/home/sidebar.css') }}">
 
@@ -23,11 +24,24 @@
 
 <body>
 
-    <div id="loading-page" style="background-color: blueviolet; height: 100vh;">
+    <div id="loading-page" class="bg-primary loading-page">
 
-        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>{{__('home.loading-page.header')}}</h3>
+                    </div>
+                    <div class="col-12">
+                        <span class="spinner-grow spinner-border spinner-border-sm" role="status"
+                            aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
+
     <div id="main-page" style="display: none">
 
         <nav class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-0 shadow">
@@ -85,12 +99,6 @@
         $(window).on('load', function() {
             AppCore.init();
         });
-
-        // $( document ).ready(function(){
-        //     AppCore.init();
-
-        // })
-
     </script>
 
 </body>
