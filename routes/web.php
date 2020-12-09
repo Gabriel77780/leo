@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DentistController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PermissionController;
-use App\Models\Permission;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,10 +30,10 @@ Route::middleware('guest')->group(function () {
 
     //----------------------- AuthController Routes ----------------------//
 
-    Route::get('/', [AuthController::class, 'getLoginView'])
+    Route::get('/', [UserController::class, 'getLoginView'])
         ->name('login');
 
-    Route::post('/login', [AuthController::class, 'logIn']);
+    Route::post('/login', [UserController::class, 'logIn']);
 });
 
 /*
@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
 
     //----------------------- AuthController Routes ----------------------//
 
-    Route::get('/logout', [AuthController::class, 'logOut']);
+    Route::get('/logout', [UserController::class, 'logOut']);
 
     //----------------------- HomeController Routes -----------------------//
 
@@ -59,10 +59,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/permissions', [PermissionController::class, 'permissions']);
 
-    //-------------------- PatientController Routes --------------------//
+    //--------------------- PatientController Routes ----------------------//
 
     Route::get('/patient', [PatientController::class, 'getPatientView']);
+    Route::post('/patient/save', [PatientController::class, 'save']);
+
+    //--------------------- DentistController Routes ----------------------//
+
+    Route::get('/dentist', [DentistController::class, 'getDentistView']);
 });
-
-
-Route::post('/patient/save', [PatientController::class, 'save']);

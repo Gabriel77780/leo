@@ -21,6 +21,7 @@ class CreatePatientsTable extends Migration
             $table->string('last_name1');
             $table->string('last_name2');
             $table->timestamp('birthdate');
+            $table->string('email', 191)->unique();
             $table->unsignedBigInteger('identification_type_id');
             $table->timestamps();
         });

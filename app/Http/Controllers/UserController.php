@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Services\AuthService;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 
-class AuthController extends Controller
+class UserController extends Controller
 {
 
-    protected $authService;
+    protected $userService;
 
-    function __construct(AuthService $authService)
+    function __construct(UserService $userService)
     {
-        $this->authService = $authService;
+        $this->userService = $userService;
     }
 
     public function getLoginView()
@@ -31,7 +31,7 @@ class AuthController extends Controller
         ]); */
 
         $loggedIn =
-            $this->authService->logIn(
+            $this->userService->logIn(
                 $request->input('email'),
                 $request->input('password')
             );
@@ -41,7 +41,7 @@ class AuthController extends Controller
 
     public function logOut(Request $request)
     {
-        $this->authService->logOut();
+        $this->userService->logOut();
         return redirect('/');
     }
 }

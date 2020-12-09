@@ -30,7 +30,8 @@ class PatientFormRequest extends FormRequest
             'name2' => '',
             'last_name1' => '',
             'last_name2' => '',
-            'birthdate' => ''
+            'birthdate' => '',
+            'email' => ''
         ];
     }
 }
