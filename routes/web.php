@@ -62,5 +62,7 @@ Route::middleware('auth')->group(function () {
     //-------------------- PatientController Routes --------------------//
 
     Route::get('/patient', [PatientController::class, 'getPatientView']);
-    Route::post('/patient/save', [PatientController::class, 'save']);
 });
+
+
+Route::post('/patient/save', [PatientController::class, 'save']);

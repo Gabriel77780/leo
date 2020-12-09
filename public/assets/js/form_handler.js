@@ -28,9 +28,16 @@ class FormHandler {
                         if (res.ok) {
                             if (res.redirected) {
                                 window.location.href = res.url;
+                            } else {
+                                res.json().then(function (jsonRes) {
+                                    if (jsonRes.success) {
+                                        AppCore.defaultSuccessAlertBox('Exito', 'Exito');
+                                    } else {
+                                        AppCore.defaultErrorAlertBox('Fallo', 'Fallo');
+                                    }
+                                }
+                                );
                             }
-                        } else {
-                            // TODO
                         }
 
                     })

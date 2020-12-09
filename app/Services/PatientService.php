@@ -2,23 +2,21 @@
 
 namespace App\Services;
 
-use App\Models\Patient;
+use App\Repositories\Interfaces\Eloquent\PatientRepository;
 
 class PatientService
 {
 
-    public function save($patientP)
+    protected $patientRepository;
+
+    function __construct(PatientRepository $patientRepository)
+    {
+        $this->patientRepository = $patientRepository;
+    }
+
+    public function save($attributes)
     {
 
-        $patient = new Patient();
-        /* patient->identificationTypeId = $patientP[""];
-        $patient->identification = $patientP[""];
-        $patient-> = $patientP[""];
-        $patient-> = $patientP[""];
-        $patient-> = $patientP[""];
-        $patient-> = $patientP[""];
-        $patient-> = $patientP[""];  */
-        $patient->fill($patientP);
-        return $patient->save();
+        return $this->patientRepository->save($attributes);;
     }
 }

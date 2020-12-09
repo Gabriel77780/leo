@@ -60,6 +60,14 @@ let AppCore = function () {
         init: function () {
             _retrievePermissions();
         },
+        defaultSuccessAlertBox: function (title, text) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        },
         defaultErrorAlertBox: function (title, text) {
             Swal.fire({
                 title: title,

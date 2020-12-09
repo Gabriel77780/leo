@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PatientFormRequest;
-use App\Models\Patient;
 use App\Services\PatientService;
-use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
@@ -25,11 +23,13 @@ class PatientController extends Controller
 
     public function save(PatientFormRequest $request)
     {
-        $validated = $request->validated();
-        //$patient = new Patient();
-        //$patient->name1 = ''
 
-        $this->patientService->save($validated);
-        return redirect('/');
+        $result = ['status' => 200, 'success' => true];
+
+        $validatedAttributes = $request->validated();
+
+        $this->patientService->save($validatedAttributes);
+
+        return response()->json($result, $result['status']);
     }
 }

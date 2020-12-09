@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 
 class Handler extends ExceptionHandler
 {
@@ -32,6 +34,19 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        //
+        $this->renderable(function (Exception $e, $request) {
+
+            $result = [
+                'status' => 200,
+                'success' => false,
+                'error' => ''
+            ];
+
+            if ($e instanceof ValidationException) {
+                $result['error'] =  $e->validator->getMessageBag();
+            }
+
+            return response()->json($result, $result['status']);
+        });
     }
 }
