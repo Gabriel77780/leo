@@ -31,4 +31,8 @@ class PatientController extends Controller
 
         return response()->json($result, $result['status']);
     }
+
+    public function all()
+    {
+    }
 }

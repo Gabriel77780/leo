@@ -5,6 +5,7 @@ use App\Http\Controllers\DentistController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,9 +64,15 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/patient', [PatientController::class, 'getPatientView']);
     Route::post('/patient/save', [PatientController::class, 'save']);
+    Route::get('/patient/all', [PatientController::class, 'all']);
 
     //--------------------- DentistController Routes ----------------------//
 
     Route::get('/dentist', [DentistController::class, 'getDentistView']);
     Route::post('/dentist/save', [DentistController::class, 'save']);
+
+    //------------------- AppointmentController Routes --------------------//
+
+    Route::get('/appointment', [AppointmentController::class, 'getAppointmentView']);
+    Route::post('/appointment/save', [AppointmentController::class, 'save']);
 });

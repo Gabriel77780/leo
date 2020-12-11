@@ -13,4 +13,8 @@ class PatientRepositoryImpl implements PatientRepository
         $patient->fill($attributes);
         return $patient->save();
     }
+
+    public function findAll()
+    {
+    }
 }

@@ -24,4 +24,8 @@ class PatientService
 
         return $this->patientRepository->save($attributes);
     }
+
+    public function findAll()
+    {
+    }
 }

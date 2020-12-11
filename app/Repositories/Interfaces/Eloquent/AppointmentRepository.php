@@ -2,9 +2,7 @@
 
 namespace App\Repositories\Interfaces\Eloquent;
 
-interface PatientRepository
+interface AppointmentRepository
 {
     public function save(array $attributes);
-
-    public function findAll();
 }
