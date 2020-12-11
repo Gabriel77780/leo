@@ -40,7 +40,7 @@
             <label for="password" class="sr-only">@lang('auth.login_form.password_input')</label>
             <input type="password" name="password" id="password"
                 class="form-control @error('password') is-invalid @enderror"
-                placeholder="@lang('auth.login_form.password_input')" required="" minlength="9" maxlength="9">
+                placeholder="@lang('auth.login_form.password_input')" required="">
         </div>
 
         {{-- <div class="checkbox mb-3">

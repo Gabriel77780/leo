@@ -23,11 +23,13 @@ class CreatePatientsTable extends Migration
             $table->timestamp('birthdate');
             $table->string('email', 191)->unique();
             $table->unsignedBigInteger('identification_type_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
 
         Schema::table('patient', function (Blueprint $table) {
             $table->foreign('identification_type_id')->references('id')->on('identification_type');
+            $table->foreign('user_id')->references('id')->on('user');
         });
     }
 

@@ -1,7 +1,7 @@
 <div>
 
     <h3>Ingresar dentista</h3>
-    <form id="patientForm">
+    <form id="dentistForm">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="identificationTypeId">Tipo de Identificación</label>
@@ -40,16 +40,16 @@
         </div>
 
         <div class="form-group">
-            <label for="birthdate">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" name="birthdate" id="birthdate" min="1900-01-01" max="2021-12-31"
-                required>
+            <label for="email">Correo Electrónico</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electrónico" required>
         </div>
+
         <div>
-            <button type="button" class="btn btn-primary btn-block" onclick="PatientController.save()">Guardar</button>
+            <button type="button" class="btn btn-primary btn-block" onclick="DentistController.save()">Guardar</button>
         </div>
     </form>
 
 </div>
 
 
-<script type="text/javascript" src="{{asset('assets/js/controllers/patient_controller.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/controllers/dentist_controller.js')}}"></script>

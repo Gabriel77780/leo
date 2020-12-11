@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Dentist extends Model
 {
     use HasFactory;
+
+    protected $table = 'dentist';
+
+    protected $guarded = [];
+
+    public function identificationType()
+    {
+        return $this->hasOne('App\Models\IdentificationType');
+    }
 }

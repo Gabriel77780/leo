@@ -6,6 +6,9 @@ use App\Repositories\Interfaces\Eloquent\PatientRepository;
 use App\Repositories\Implementations\Eloquent\PatientRepositoryImpl;
 use App\Repositories\Interfaces\Eloquent\UserRepository;
 use App\Repositories\Implementations\Eloquent\UserRepositoryImpl;
+use App\Repositories\Interfaces\Eloquent\DentistRepository;
+use App\Repositories\Implementations\Eloquent\DentistRepositoryImpl;
+
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -19,6 +22,8 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(PatientRepository::class, PatientRepositoryImpl::class);
         $this->app->bind(UserRepository::class, UserRepositoryImpl::class);
+        $this->app->bind(DentistRepository::class, DentistRepositoryImpl::class);
+        // Don't forget to add use App\Repositories\
     }
 
     /**

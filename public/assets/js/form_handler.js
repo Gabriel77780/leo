@@ -31,7 +31,7 @@ class FormHandler {
                             } else {
                                 res.json().then(function (jsonRes) {
                                     if (jsonRes.success) {
-                                        AppCore.defaultSuccessAlertBox('Exito', 'Exito');
+                                        AppCore.defaultSuccessAlertBox(jsonRes.message);
                                     } else {
                                         AppCore.defaultErrorAlertBox('Fallo', 'Fallo');
                                     }

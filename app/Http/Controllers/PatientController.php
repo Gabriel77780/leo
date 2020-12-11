@@ -20,11 +20,10 @@ class PatientController extends Controller
         return view('patient');
     }
 
-
     public function save(PatientFormRequest $request)
     {
 
-        $result = ['status' => 200, 'success' => true];
+        $result = ['status' => 200, 'success' => true, 'message' => __('patient.save')];
 
         $validatedAttributes = $request->validated();
 

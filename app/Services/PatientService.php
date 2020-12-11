@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\User;
 use App\Repositories\Interfaces\Eloquent\PatientRepository;
 use App\Services\UserService;
 
@@ -21,9 +20,8 @@ class PatientService
     public function save($attributes)
     {
 
+        $attributes['user_id'] = $this->userService->save($attributes['email'], $attributes['identification']);
 
-        $this->userService->save($attributes['email'], $attributes['identification']);
-
-        return $this->patientRepository->save($attributes);;
+        return $this->patientRepository->save($attributes);
     }
 }

@@ -67,4 +67,5 @@ Route::middleware('auth')->group(function () {
     //--------------------- DentistController Routes ----------------------//
 
     Route::get('/dentist', [DentistController::class, 'getDentistView']);
+    Route::post('/dentist/save', [DentistController::class, 'save']);
 });

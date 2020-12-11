@@ -18,5 +18,7 @@ class UserRepositoryImpl implements UserRepository
         $user->password = Hash::make($password);
 
         $user->save();
+
+        return $user->id;
     }
 }

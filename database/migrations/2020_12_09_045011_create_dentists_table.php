@@ -13,9 +13,22 @@ class CreateDentistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('dentists', function (Blueprint $table) {
+        Schema::create('dentist', function (Blueprint $table) {
             $table->id();
+            $table->string('identification');
+            $table->string('name1');
+            $table->string('name2');
+            $table->string('last_name1');
+            $table->string('last_name2');
+            $table->string('email', 191)->unique();
+            $table->unsignedBigInteger('identification_type_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+        });
+
+        Schema::table('dentist', function (Blueprint $table) {
+            $table->foreign('identification_type_id')->references('id')->on('identification_type');
+            $table->foreign('user_id')->references('id')->on('user');
         });
     }
 

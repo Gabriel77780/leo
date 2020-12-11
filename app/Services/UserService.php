@@ -28,6 +28,6 @@ class UserService
 
     public function save($email, $password)
     {
-        $this->userRepository->save($email, $password);
+        return $this->userRepository->save($email, $password);
     }
 }
