@@ -18,7 +18,7 @@ class CreateAppointmentsTable extends Migration
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('dentist_id');
             $table->date('date');
-            $table->time('time', 2);
+            $table->time('time');
             $table->boolean('finished');
             $table->timestamps();
         });
