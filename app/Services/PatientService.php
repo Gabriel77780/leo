@@ -20,7 +20,7 @@ class PatientService
     public function save($attributes)
     {
 
-        $attributes['user_id'] = $this->userService->save($attributes['email'], $attributes['identification']);
+        $attributes['user_id'] = $this->userService->save($attributes['email'], $attributes['identification'], 'PATIENT');
 
         return $this->patientRepository->save($attributes);
     }

@@ -58,4 +58,29 @@ class AppointmentService
 
         return $appointmentsResponse;
     }
+
+    public function findAllByDentist()
+    {
+
+        $appointmentsResponse = array();
+
+        $appointments = $this->appointmentRepository->findAllByDentist();
+
+        foreach ($appointments as $appointment) {
+
+            $patient = $this->patientService->findOne($appointment['patient_id']);
+            $dentist = $this->dentistService->findOne($appointment['dentist_id']);
+
+            $object = [
+                'patient' => $patient->name1 . ' ' . $patient->last_name1 . ' ' .  $patient->last_name2,
+                'dentist' => $dentist->name1 . ' ' . $dentist->last_name1 . ' ' .  $dentist->last_name2,
+                'date' => $appointment->date->format('d-m-Y'),
+                'time' => $appointment->time
+            ];
+
+            array_push($appointmentsResponse, $object);
+        }
+
+        return $appointmentsResponse;
+    }
 }

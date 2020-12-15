@@ -26,6 +26,12 @@ class AppointmentController extends Controller
         return view('allappointments');
     }
 
+    public function getAllDentistAppointmentsView()
+    {
+        return view('dentistappointments');
+    }
+
+
     public function save(AppointmentFormRequest $request)
     {
 
@@ -39,6 +45,16 @@ class AppointmentController extends Controller
     }
 
     public function all()
+    {
+
+        $result = ['status' => 200, 'success' => true, 'data' => [array()]];
+
+        $result['data'] = $this->appointmentService->findAll();
+
+        return response()->json($result, $result['status']);
+    }
+
+    public function allByDentist()
     {
 
         $result = ['status' => 200, 'success' => true, 'data' => [array()]];

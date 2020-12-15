@@ -76,6 +76,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/appointment', [AppointmentController::class, 'getAppointmentView']);
     Route::get('/appointments', [AppointmentController::class, 'getAllAppointmentsView']);
+    Route::get('/appointments/patients', [AppointmentController::class, 'getAllDentistAppointmentsView']);
     Route::post('/appointment/save', [AppointmentController::class, 'save']);
     Route::get('/appointment/all', [AppointmentController::class, 'all']);
+    Route::get('/dentist/appointments/all', [AppointmentController::class, 'allByDentist']);
 });

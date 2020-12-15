@@ -20,7 +20,7 @@ class DentistService
     public function save($attributes)
     {
 
-        $attributes['user_id'] = $this->userService->save($attributes['email'], $attributes['identification']);
+        $attributes['user_id'] = $this->userService->save($attributes['email'], $attributes['identification'], 'DENTIST');
 
         return $this->dentistRepository->save($attributes);
     }

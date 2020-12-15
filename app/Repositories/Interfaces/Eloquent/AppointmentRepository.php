@@ -7,4 +7,6 @@ interface AppointmentRepository
     public function save(array $attributes);
 
     public function findAll();
+
+    public function findAllByDentist();
 }
