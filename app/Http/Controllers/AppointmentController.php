@@ -59,7 +59,7 @@ class AppointmentController extends Controller
 
         $result = ['status' => 200, 'success' => true, 'data' => [array()]];
 
-        $result['data'] = $this->appointmentService->findAll();
+        $result['data'] = $this->appointmentService->findAllByDentist();
 
         return response()->json($result, $result['status']);
     }
