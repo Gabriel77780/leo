@@ -34,5 +34,11 @@ class PatientController extends Controller
 
     public function all()
     {
+
+        $result = ['status' => 200, 'success' => true, 'message' => __('patient.save'), 'data' => [array()]];
+
+        $result['data'] = $this->patientService->findAll();
+
+        return response()->json($result, $result['status']);
     }
 }

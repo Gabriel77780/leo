@@ -1,4 +1,4 @@
-let DentistController = function () {
+DentistController = function () {
 
     let dentistFormHandler = new FormHandler();
 

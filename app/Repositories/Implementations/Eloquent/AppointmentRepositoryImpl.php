@@ -13,4 +13,9 @@ class AppointmentRepositoryImpl implements AppointmentRepository
         $appointment->fill($attributes);
         return $appointment->save();
     }
+
+    public function findAll()
+    {
+        return Appointment::get();
+    }
 }

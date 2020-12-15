@@ -1,4 +1,4 @@
-let PatientController = function () {
+PatientController = function () {
 
     let patientFormHandler = new FormHandler();
 
@@ -7,14 +7,13 @@ let PatientController = function () {
         async: true,
         method: 'post',
         url: '/patient/save',
-    })
+    });
 
     return {
 
         save: function () {
             patientFormHandler.sendRequest();
         }
-
     };
 
 

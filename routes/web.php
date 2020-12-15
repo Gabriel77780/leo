@@ -70,9 +70,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dentist', [DentistController::class, 'getDentistView']);
     Route::post('/dentist/save', [DentistController::class, 'save']);
+    Route::get('/dentist/all', [DentistController::class, 'all']);
 
     //------------------- AppointmentController Routes --------------------//
 
     Route::get('/appointment', [AppointmentController::class, 'getAppointmentView']);
+    Route::get('/appointments', [AppointmentController::class, 'getAllAppointmentsView']);
     Route::post('/appointment/save', [AppointmentController::class, 'save']);
+    Route::get('/appointment/all', [AppointmentController::class, 'all']);
 });

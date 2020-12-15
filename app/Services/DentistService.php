@@ -24,4 +24,14 @@ class DentistService
 
         return $this->dentistRepository->save($attributes);
     }
+
+    public function findOne($id)
+    {
+        return $this->dentistRepository->findOne($id);
+    }
+
+    public function findAll()
+    {
+        return $this->dentistRepository->findAll();
+    }
 }

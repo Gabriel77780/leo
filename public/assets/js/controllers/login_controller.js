@@ -1,4 +1,4 @@
-let LoginController = function () {
+LoginController = function () {
 
     let loginFormHandler = new FormHandler();
 

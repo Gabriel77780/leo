@@ -27,5 +27,11 @@ class PatientService
 
     public function findAll()
     {
+        return $this->patientRepository->findAll();
+    }
+
+    public function findOne($id)
+    {
+        return $this->patientRepository->findOne($id);
     }
 }

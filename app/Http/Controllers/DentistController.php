@@ -31,4 +31,9 @@ class DentistController extends Controller
 
         return response()->json($result, $result['status']);
     }
+
+    public function all()
+    {
+        return $this->dentistService->findAll();
+    }
 }

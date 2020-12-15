@@ -5,7 +5,7 @@
         <h3>Pacientes</h3>
         <div class="table-responsive">
             <table class="table table-bordered">
-                <thead class="bg-primary">
+                <thead class="bg-primary" style="color: white">
                     <tr>
                         <th scope="col">Identificación</th>
                         <th scope="col">Nombre</th>
@@ -13,21 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Test</td>
-                        <td>Test</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Test</td>
-                        <td>Test</td>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <td>Test</td>
-                        <td>Test</td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
@@ -36,13 +22,13 @@
         <h3>Nueva cita</h3>
         <form id="appointmentForm">
 
-            <input type="text" class="form-control" name="patient_id" id="patientId" value="1" hidden>
+            <input type="text" class="form-control" name="patient_id" id="patientId" value="" hidden>
 
             <div class="form-group">
                 <label for="dentistId">Dentista</label>
                 <select class="form-control" name="dentist_id" id="dentistId" required>
                     <option value="" selected>Seleccione...</option>
-                    <option value="1">Gabriel Vásquez</option>
+
                 </select>
             </div>
             <div class="form-row">
@@ -66,4 +52,5 @@
     </div>
 </div>
 
+<script type="text/javascript" src="{{asset('assets/js/controllers/patient_controller.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/controllers/appointment_controller.js')}}"></script>

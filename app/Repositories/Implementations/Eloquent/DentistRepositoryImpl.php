@@ -13,4 +13,14 @@ class DentistRepositoryImpl implements DentistRepository
         $dentist->fill($attributes);
         return $dentist->save();
     }
+
+    public function findOne($id)
+    {
+        return Dentist::where('id', $id)->first();
+    }
+
+    public function findAll()
+    {
+        return Dentist::get();
+    }
 }

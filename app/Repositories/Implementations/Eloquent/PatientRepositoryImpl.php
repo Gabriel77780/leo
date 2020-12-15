@@ -16,5 +16,11 @@ class PatientRepositoryImpl implements PatientRepository
 
     public function findAll()
     {
+        return Patient::get();
+    }
+
+    public function findOne($id)
+    {
+        return Patient::where('id', $id)->first();
     }
 }
